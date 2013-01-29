@@ -18,6 +18,8 @@
 @implementation CardGameViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     if (!self.deckOfCards) self.deckOfCards = [[PlayingCardDeck alloc] init];
 }
 
