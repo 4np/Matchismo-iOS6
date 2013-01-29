@@ -13,5 +13,7 @@
 
 - (void)addCard:(Card *)card atTop:(BOOL)atTop;
 - (Card *)drawRandomCard;
+- (Card *)drawCardFromTop;
+- (int)numberOfCardsInDeck;
 
 @end

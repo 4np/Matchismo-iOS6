@@ -44,4 +44,19 @@
     return randomCard;
 }
 
+- (Card *)drawCardFromTop {
+    Card *topCard = nil;
+    
+    if (self.cards.count) {
+        topCard = self.cards[0];
+        [self.cards removeObjectAtIndex:0];
+    }
+    
+    return topCard;
+}
+
+- (int)numberOfCardsInDeck {
+    return self.cards.count;
+}
+
 @end
