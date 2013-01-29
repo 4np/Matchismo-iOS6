@@ -128,9 +128,9 @@
 				90B509BF16B8159500CD9419 /* Deck.h */,
 				90B509C016B8159500CD9419 /* Deck.m */,
 				90B509C316B823B200CD9419 /* PlayingCard.h */,
+				90B509C416B823B200CD9419 /* PlayingCard.m */,
 				90B509C616B828A000CD9419 /* PlayingCardDeck.h */,
 				90B509C716B828A000CD9419 /* PlayingCardDeck.m */,
-				90B509C416B823B200CD9419 /* PlayingCard.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
