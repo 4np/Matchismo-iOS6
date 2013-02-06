@@ -3,6 +3,10 @@ This is the code for the _Matchismo_ project for the Computer Science [CS139p](h
 
 ![iTunes U](http://cdniphone.i-culture.nl/wp-content/uploads/2013/01/stanford-coding-together.png?c8b1e9)
 
+## Screenshot
+
+![Machismo](https://dl.dropbox.com/s/lorstjqz9hw6v8o/matchismo.png?dl=1)
+
 ## Lecture(s)
 This code covers the _Matchismo_ project from Lecture 2 and 3 and Assignments 0 and 1.
 

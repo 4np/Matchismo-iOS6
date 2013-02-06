@@ -50,24 +50,27 @@
 // overloaded method
 - (int)match:(NSArray *)otherCards {
     int score = 0;
+    int suitMatches = 0;
+    int rankMatches = 0;
     
-    // iterate over othercards and calculate score
-    // if we do no match, score will always be zero
+    // iterate over all other cards and see if rank or suit matches
     for (Card *otherCard in otherCards) {
+        // check if this indeed a playing card
         if ([otherCard isKindOfClass:[PlayingCard class]]) {
             PlayingCard *otherPlayingCard = (PlayingCard *)otherCard;
-
+            
+            // match suits and ranks
             if ([otherPlayingCard.suit isEqualToString:self.suit]) {
-                score += 1;
+                suitMatches++;
             } else if (otherPlayingCard.rank == self.rank) {
-                score += 4;
-            } else {
-                // no match
-                score = 0;
-                break;
+                rankMatches++;
             }
         }
     }
+    
+    // do we have a complete match?
+    if (suitMatches == [otherCards count]) score += suitMatches;
+    if (rankMatches == [otherCards count]) score += rankMatches * 4;
     
     return score;
 }

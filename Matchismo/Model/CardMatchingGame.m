@@ -19,6 +19,11 @@
 
 @implementation CardMatchingGame
 
+// define constants
+#define MATCH_BONUS 4
+#define MISMATCH_PENALTY 2
+#define FLIP_COST 1
+
 - (id)init {
     // invalid, you should call the designated initializer
     return nil;
@@ -56,10 +61,6 @@
     return self;
 }
 
-#define MATCH_BONUS 4
-#define MISMATCH_PENALTY 2
-#define FLIP_COST 1
-
 - (void)flipCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
@@ -75,21 +76,30 @@
             }
             
             // do we need to match?
-            if ((self.isTwoCardGame && [otherCards count] == 1) || (!self.isTwoCardGame && [otherCards count] ==2)) {
+            if ((self.isTwoCardGame && [otherCards count] == 1) || (!self.isTwoCardGame && [otherCards count] == 2)) {
                 // calculate the match score
                 int matchScore = [card match:otherCards];
                 
+                // build user feedback
                 NSMutableString *feedback = [[NSMutableString alloc] init];
                 
+                // did we have a match score? 
                 if (matchScore) {
+                    // increase our score
                     self.score += matchScore * MATCH_BONUS;
                     
+                    // set the card to unplayable
                     card.unplayable = YES;
+                    
+                    // work on the feedback
                     [feedback appendFormat:@"Matched %@", card.contents];
                     
+                    // iterate over the cards (that matched)
                     for (Card *otherCard in otherCards) {
+                        // set it to unplayable
                         otherCard.unplayable = YES;
 
+                        // work on the feedback
                         if ([otherCard isEqual:[otherCards lastObject]]) {
                             [feedback appendFormat:@" and %@", otherCard.contents];
                         } else {
@@ -97,33 +107,42 @@
                         }
                     }
                     
+                    // work on the feedback some more...
                     [feedback appendFormat:@" for %d points", matchScore * MATCH_BONUS];
                 } else {
+                    // no match, get a penalty
                     self.score -= MISMATCH_PENALTY * [otherCards count];
                     
+                    // work on feedback
                     [feedback appendString:card.contents];
                     
+                    // iterate over the cards (that didn't match)
                     for (Card *otherCard in otherCards) {
+                        // turn them face down
                         otherCard.faceUp = NO;
                         
+                        // work on the feedback
                         if ([otherCard isEqual:[otherCards lastObject]]) {
                             [feedback appendFormat:@" and %@", otherCard.contents];
                         } else {
                             [feedback appendFormat:@", %@", otherCard.contents];
                         }
                     }
-
+                    
+                    // work on the feedback some more...
                     [feedback appendFormat:@"don't match! %d points penalty!", MISMATCH_PENALTY * [otherCards count]];
                 }
                 
+                // and store the feedback for the controller to use
                 self.matchResult = feedback;
             } else {
                 self.matchResult = [NSString stringWithFormat:@"Flipped up %@", card.contents];
             }
             
-            // discourage constant flipping
+            // discourage constant flipping by substracting a score cost
             self.score -= FLIP_COST;
         } else {
+            // as we're not matching, we don't need feedback
             self.matchResult = @"";
         }
 
