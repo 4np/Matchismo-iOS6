@@ -63,9 +63,22 @@
 }
 
 - (IBAction)deal:(id)sender {
-    // reset the cards
-    self.game = nil;
-    [self updateUI];
+    // ask to confirm re-dealing
+    UIAlertView *warning = [[UIAlertView alloc] initWithTitle:@"Re-deal"
+                                                      message:@"Are you sure you want to re-deal the deck and start over?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"No"
+                                            otherButtonTitles:@"Yes", nil];
+    [warning show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
+        // reset the cards
+        self.game = nil;
+        self.flipCount = 0;
+        [self updateUI];
+    }
 }
 
 @end
