@@ -4,7 +4,7 @@ This is the code for the _Matchismo_ project for the Computer Science [CS139p](h
 ![iTunes U](http://cdniphone.i-culture.nl/wp-content/uploads/2013/01/stanford-coding-together.png?c8b1e9)
 
 ## Lecture(s)
-This code covers the _Matchismo_ project from Lecture 2
+This code covers the _Matchismo_ project from Lecture 2 and 3 and Assignments 0 and 1.
 
 ## Versions
 The code has been tagged in different versions, where the major version relates to a certain lecture and the minor version relates to an iteration in the code of a particular lecture (slides, live demonstration, assignment and fixes), but is not the *literal* number of the Lecture. The way the code has been tagged is as follows:
