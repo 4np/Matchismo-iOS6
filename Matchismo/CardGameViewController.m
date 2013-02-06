@@ -48,9 +48,9 @@
         
         // set the back image of the card
         [cardButton setTitle:@"" forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardBack.jpg"] forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.jpg"] forState:UIControlStateSelected];
-        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.jpg"] forState:UIControlStateSelected|UIControlStateDisabled];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardBack.png"] forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.png"] forState:UIControlStateSelected];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.png"] forState:UIControlStateSelected|UIControlStateDisabled];
 
         
         // set the title of the card
