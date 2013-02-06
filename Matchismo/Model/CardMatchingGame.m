@@ -10,6 +10,9 @@
 
 @interface CardMatchingGame()
 @property (readwrite, nonatomic) int score; // private read/write
+// while the match results are shown in the view, it is in fact something
+// the model keeps track of. Therefore it belongs in the Model, for the
+// controler to use.
 @property (readwrite, nonatomic) NSString *matchResult; // idem
 @property (strong, nonatomic) NSMutableArray *cards; // of Card
 @end
