@@ -1,7 +1,11 @@
 # Matchismo Project
 This is the code for the _Matchismo_ project for the Computer Science [CS139p](http://www.stanford.edu/class/cs193p) course *"Developing Apps for iPhone and iPad Winter 2013"* (January / March) by Stanford University on [iTunes U](https://itunes.apple.com/us/course/coding-together-developing/id593208016?l=en).
 
-![Machismo](https://dl.dropbox.com/s/lorstjqz9hw6v8o/matchismo.png?dl=1)
+![UIAlertView](https://dl.dropbox.com/s/1v1so693ugyhudq/Matchismo%20-%20Assignment%201%20-%20UIAlertView.png?dl=1)
+
+![Card flipping](https://dl.dropbox.com/s/vwdk2vrs2see1mg/Matchismo%20-%20Assignment%201%20-%20Card%20Flipping.png?dl=1)
+
+![Re-Dealing](https://dl.dropbox.com/s/l5vaqpc66nbrlc9/Matchismo%20-%20Assignment%201%20-%20UIAlertView%20-%20Re-Deal.png?dl=1)
 
 ## Lecture(s)
 This code covers the _Matchismo_ project from Lecture 2 and 3 and Assignments 0 and 1.
