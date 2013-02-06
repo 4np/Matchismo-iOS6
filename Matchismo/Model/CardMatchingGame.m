@@ -79,7 +79,7 @@
                 NSMutableString *feedback = [[NSMutableString alloc] init];
                 
                 if (matchScore) {
-                    self.score += matchScore * MATCH_BONUS * [otherCards count];
+                    self.score += matchScore * MATCH_BONUS;
                     
                     card.unplayable = YES;
                     [feedback appendFormat:@"Matched %@", card.contents];
@@ -94,7 +94,7 @@
                         }
                     }
                     
-                    [feedback appendFormat:@" for %d points", matchScore * MATCH_BONUS * [otherCards count]];
+                    [feedback appendFormat:@" for %d points", matchScore * MATCH_BONUS];
                 } else {
                     self.score -= MISMATCH_PENALTY * [otherCards count];
                     
