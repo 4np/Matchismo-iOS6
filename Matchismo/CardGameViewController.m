@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchResultLabel;
 @end
 
 @implementation CardGameViewController
@@ -47,6 +48,7 @@
     }
     
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.matchResultLabel.text = self.game.matchResult;
 }
 
 - (void)setFlipCount:(int)flipCount {

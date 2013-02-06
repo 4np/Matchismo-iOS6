@@ -20,4 +20,6 @@
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (readonly, nonatomic) int score; // public read only
+@property (readonly, nonatomic) NSString *matchResult; // idem
+
 @end
