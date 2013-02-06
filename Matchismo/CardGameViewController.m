@@ -17,14 +17,21 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *matchResultLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSwitch;
+
 @end
 
 @implementation CardGameViewController
 
 - (CardMatchingGame *)game {
     // lazy instantiation
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                          usingDeck:[[PlayingCardDeck alloc] init]];
+    if (!_game) {
+        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                  usingDeck:[[PlayingCardDeck alloc] init]];
+
+        // set the game mode
+        self.game.twoCardGame = ([self.gameModeSwitch selectedSegmentIndex] == 0);
+    }
     
     return _game;
 }
@@ -80,5 +87,10 @@
         [self updateUI];
     }
 }
+
+- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
+    self.game.twoCardGame = ([sender selectedSegmentIndex] == 0);
+}
+
 
 @end

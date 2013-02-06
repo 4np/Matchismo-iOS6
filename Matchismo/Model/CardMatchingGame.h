@@ -21,5 +21,6 @@
 
 @property (readonly, nonatomic) int score; // public read only
 @property (readonly, nonatomic) NSString *matchResult; // idem
+@property (nonatomic, getter = isTwoCardGame) BOOL twoCardGame;
 
 @end
