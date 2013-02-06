@@ -32,6 +32,8 @@
     self = [super init];
     
     if (self) {
+        self.score = 0;
+        
         for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
             

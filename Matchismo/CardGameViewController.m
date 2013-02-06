@@ -62,4 +62,10 @@
     [self updateUI];
 }
 
+- (IBAction)deal:(id)sender {
+    // reset the cards
+    self.game = nil;
+    [self updateUI];
+}
+
 @end
