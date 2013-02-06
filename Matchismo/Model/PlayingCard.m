@@ -53,15 +53,19 @@
     
     // iterate over othercards and calculate score
     // if we do no match, score will always be zero
-    for (PlayingCard *otherCard in otherCards) {
-        if ([otherCard.suit isEqualToString:self.suit]) {
-            score += 1;
-        } else if (otherCard.rank == self.rank) {
-            score += 4;
-        } else {
-            // no match
-            score = 0;
-            break;
+    for (Card *otherCard in otherCards) {
+        if ([otherCard isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherPlayingCard = (PlayingCard *)otherCard;
+
+            if ([otherPlayingCard.suit isEqualToString:self.suit]) {
+                score += 1;
+            } else if (otherPlayingCard.rank == self.rank) {
+                score += 4;
+            } else {
+                // no match
+                score = 0;
+                break;
+            }
         }
     }
     
