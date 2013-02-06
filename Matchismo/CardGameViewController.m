@@ -41,14 +41,22 @@
     [self updateUI];
 }
 
-- (void)updateUI {
+- (void)updateUI { 
+    
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+        
+        // set the back image of the card
+        [cardButton setTitle:@"" forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardBack.jpg"] forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.jpg"] forState:UIControlStateSelected];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"playingCardFront.jpg"] forState:UIControlStateSelected|UIControlStateDisabled];
+
         
         // set the title of the card
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-
+        
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable) ? 0.3 : 1;
