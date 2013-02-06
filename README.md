@@ -1,10 +1,6 @@
 # Matchismo Project
 This is the code for the _Matchismo_ project for the Computer Science [CS139p](http://www.stanford.edu/class/cs193p) course *"Developing Apps for iPhone and iPad Winter 2013"* (January / March) by Stanford University on [iTunes U](https://itunes.apple.com/us/course/coding-together-developing/id593208016?l=en).
 
-![iTunes U](http://cdniphone.i-culture.nl/wp-content/uploads/2013/01/stanford-coding-together.png?c8b1e9)
-
-## Screenshot
-
 ![Machismo](https://dl.dropbox.com/s/lorstjqz9hw6v8o/matchismo.png?dl=1)
 
 ## Lecture(s)
@@ -40,4 +36,6 @@ This way you can _download_ each stage of development, for example the stage _be
 
 ## Credits
 This code is based on the [CS139p](http://www.stanford.edu/class/cs193p) course *"Developing Apps for iPhone and iPad Winter 2013"* (January / March) by Stanford University on [iTunes U](https://itunes.apple.com/us/course/coding-together-developing/id593208016?l=en) which is licensed under the [Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License](http://creativecommons.org/licenses/by-nc-sa/3.0/us/).
+
+![iTunes U](http://cdniphone.i-culture.nl/wp-content/uploads/2013/01/stanford-coding-together.png?c8b1e9)
 
