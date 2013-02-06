@@ -12,51 +12,38 @@
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (nonatomic) PlayingCardDeck *deckOfCards;
+@property (strong, nonatomic) Deck *deck;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @end
 
 @implementation CardGameViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (Deck *)deck {
+    // lazy instantiation of the deck
+    if (!_deck) _deck = [[PlayingCardDeck alloc] init];
     
-    if (!self.deckOfCards) self.deckOfCards = [[PlayingCardDeck alloc] init];
+    return _deck;
 }
 
-- (void)setFlipCount:(int)flipCount
-{
+- (void)setCardButtons:(NSArray *)cardButtons {
+    _cardButtons = cardButtons;
+    
+    // iterate through card buttons and set them randomly
+    for (UIButton *cardButton in self. cardButtons) {
+        Card *card = [self.deck drawRandomCard];
+        
+        [cardButton setTitle:card.contents forState:UIControlStateSelected];
+    }
+}
+
+- (void)setFlipCount:(int)flipCount {
     _flipCount = flipCount;
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
 }
 
 - (IBAction)flipCard:(UIButton *)sender {
-    // are there cards in the deck?
-    if (self.deckOfCards.numberOfCardsInDeck > 0) {
-        // yes, are we flipping over to show the front of the card?
-        if (!sender.isSelected) {
-            // yes, draw a card from the top of the deck
-            Card *card = [self.deckOfCards drawCardFromTop];
-            [sender setTitle:card.contents forState:UIControlStateSelected];
-        }
-        
-        sender.selected = !sender.isSelected;
-        self.flipCount++;
-    } else {
-        // no, show a warning
-        UIAlertView *warning = [[UIAlertView alloc] initWithTitle:@"No more cards"
-                                                          message:@"This is the last card, there are no more cards left in the deck"
-                                                         delegate:self
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:@"Restack Deck", nil];
-        [warning show];
-    }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Restack Deck"]) {
-        // restack the deck by re-initializing the deck
-        self.deckOfCards = [[PlayingCardDeck alloc] init];
-    }
+    sender.selected = !sender.isSelected;
+    self.flipCount++;
 }
 
 @end
