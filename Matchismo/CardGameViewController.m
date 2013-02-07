@@ -17,7 +17,7 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *matchResultLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSwitch;
+//@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSwitch;
 
 @end
 
@@ -30,7 +30,7 @@
                                                   usingDeck:[[PlayingCardDeck alloc] init]];
 
         // set the game mode
-        self.game.twoCardGame = ([self.gameModeSwitch selectedSegmentIndex] == 0);
+        //self.game.twoCardGame = ([self.gameModeSwitch selectedSegmentIndex] == 0);
     }
     
     return _game;
@@ -75,7 +75,7 @@
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
     [self updateUI];
-    self.gameModeSwitch.enabled = FALSE;
+    //self.gameModeSwitch.enabled = FALSE;
 }
 
 - (IBAction)deal:(id)sender {
@@ -94,21 +94,21 @@
         self.game = nil;
         self.flipCount = 0;
         [self updateUI];
-        self.gameModeSwitch.enabled = TRUE;
+        //self.gameModeSwitch.enabled = TRUE;
     }
 }
 
-- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
-    self.game.twoCardGame = ([sender selectedSegmentIndex] == 0);
-    
-    // feedback to the user
-    UIAlertView *feedback = [[UIAlertView alloc] initWithTitle:@"Game mode changed"
-                                                       message:[NSString stringWithFormat:@"You now need to match %d cards", (self.game.isTwoCardGame) ? 2 : 3]
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-    [feedback show];
-}
+//- (IBAction)gameModeChanged:(UISegmentedControl *)sender {
+//    self.game.twoCardGame = ([sender selectedSegmentIndex] == 0);
+//    
+//    // feedback to the user
+//    UIAlertView *feedback = [[UIAlertView alloc] initWithTitle:@"Game mode changed"
+//                                                       message:[NSString stringWithFormat:@"You now need to match %d cards", (self.game.isTwoCardGame) ? 2 : 3]
+//                                                      delegate:self
+//                                             cancelButtonTitle:@"OK"
+//                                             otherButtonTitles:nil];
+//    [feedback show];
+//}
 
 
 @end

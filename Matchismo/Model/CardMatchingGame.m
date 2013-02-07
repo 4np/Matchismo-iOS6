@@ -76,7 +76,8 @@
             }
             
             // do we need to match?
-            if ((self.isTwoCardGame && [otherCards count] == 1) || (!self.isTwoCardGame && [otherCards count] == 2)) {
+            //if ((self.isTwoCardGame && [otherCards count] == 1) || (!self.isTwoCardGame && [otherCards count] == 2)) {
+            if ([otherCards count] == 1) {
                 // calculate the match score
                 int matchScore = [card match:otherCards];
                 
